@@ -1,0 +1,32 @@
+<h1> Ones ページをつくってみた</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Titleです</th>
+      <th>Bodyです</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @ones.each do |one| %>
+    <tr>
+      <td><%= one.title %></td>
+      <td><%= one.body %></td>
+      <td><%= link_to 'show', one_path(one) %></td>
+      <td><%= link_to '編集', edit_one_path(one) %></td>
+      <td><%= link_to '削除', one_path(one), method: :delete, data:{ confirm: '削除して大丈夫？' } %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+
+<br>
+
+<%= link_to 'newタイトル作成', new_one_path %>
+
+
+<br>
+
+<%= link_to 'New Scaffo', new_scaffo_path %>

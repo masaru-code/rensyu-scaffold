@@ -1,0 +1,2 @@
+class Scaffo < ApplicationRecord
+end

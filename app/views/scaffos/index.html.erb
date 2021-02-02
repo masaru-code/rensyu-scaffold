@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Scaffos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scaffos.each do |scaffo| %>
+      <tr>
+        <td><%= scaffo.title %></td>
+        <td><%= scaffo.body %></td>
+        <td><%= link_to 'Show', scaffo %></td>
+        <td><%= link_to 'Edit', edit_scaffo_path(scaffo) %></td>
+        <td><%= link_to 'Destroy', scaffo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Scaffo', new_scaffo_path %>

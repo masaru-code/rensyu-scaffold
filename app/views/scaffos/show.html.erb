@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @scaffo.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @scaffo.body %>
+</p>
+
+<%= link_to 'Edit', edit_scaffo_path(@scaffo) %> |
+<%= link_to 'Back', scaffos_path %>
