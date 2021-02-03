@@ -46,6 +46,7 @@ class ScaffosController < ApplicationController
   end
 
   private
+  
     def set_scaffo
       @scaffo = Scaffo.find(params[:id])
     end

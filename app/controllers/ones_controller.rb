@@ -1,4 +1,6 @@
 class OnesController < ApplicationController
+  before_action :set_one, only: %i [ show edit update destroy ] 
+
   def index
     @ones = One.all
   end
@@ -15,30 +17,28 @@ class OnesController < ApplicationController
 
   def create
     @one = One.new(one_params)
-
-    respond_to do |format|
-      if @one.save
-        redirect_to @one, notice: "oneは作られました"
-      else
-        render :new, status: :unprocessable_entity
-      end
+    if @one.save
+      redirect_to @one, notice: "oneは作られました"
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   def destroy
     @one.destroy
-    respond_to do |format|
-      redirect_to ones_url, notice: "oneは削除されました"
-    end
+    redirect_to ones_url, notice: "oneは削除されました"
   end
 
   def update
   end
 
   private
+
+  def set_one
+    @one = One.find(params[:id])
+  end
   
   def one_params
     params.require(:one).permit(:title, :body)
   end
-
 end
