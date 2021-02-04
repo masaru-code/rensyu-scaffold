@@ -1,5 +1,5 @@
 class OnesController < ApplicationController
-  before_action :set_one, only: %i [ show edit update destroy ] 
+  before_action :set_one, only: %i[ show edit update destroy ] 
 
   def index
     @ones = One.all
@@ -30,6 +30,11 @@ class OnesController < ApplicationController
   end
 
   def update
+    if @one.update(one_params)
+      redirect_to @one, notice: "正常に更新されました"
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private
